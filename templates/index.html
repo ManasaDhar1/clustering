@@ -4,17 +4,17 @@
     <title>World Development Clustering</title>
 </head>
 <body>
-    <h2>Select Features and Number of Clusters</h2>
-    <form action="/cluster" method="post">
-        <label for="num_clusters">Number of Clusters:</label>
-        <input type="number" name="num_clusters" required>
-
-        <h3>Select Features:</h3>
+    <h2>Enter Feature Values to Predict Cluster</h2>
+    
+    <form action="/predict" method="post">
         {% for column in columns %}
-            <input type="checkbox" name="features" value="{{ column|e }}"> {{ column|e }}<br>
+            {% if column != "Country" %}  <!-- Exclude 'Country' column -->
+                <label for="{{ column }}">{{ column }}:</label>
+                <input type="text" name="{{ column }}" required><br><br>
+            {% endif %}
         {% endfor %}
-
-        <button type="submit">Run Clustering</button>
+        <button type="submit">Predict Cluster</button>
     </form>
+
 </body>
 </html>
