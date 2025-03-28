@@ -5,7 +5,13 @@
 </head>
 <body>
     <h2>Clustering Output</h2>
-    <img src="{{ image }}" alt="Cluster Plot">
+
+    <h3>Predicted Cluster: {{ prediction }}</h3>
+
+    {% if image %}
+        <img src="{{ image }}" alt="Cluster Plot">
+    {% endif %}
+
     <br><br>
     <a href="/">Go Back</a>
 </body>
